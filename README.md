@@ -1,2 +1,3 @@
 # ElecDict
-Remove all the Cambridge Dictionary Ads and make it fast
+
+I can't find a good UK Dictionary Application when I need to use an English Dictionary for my English course. The Cambridge Dictionary App had stopped update about three years, it hard to work on the new device and the Cambridge Dictionary website has many advertisements. The internal applications have so many unuseful functions it is a so bad choice. And when I try to use the Eudic application that will be made the device so hot. I thought the problem is this application always build the spotlight index. It will speed so many times and made the battery so quickly reduce. So I decided to build a new dictionary application by Cambridge Dictionary Data. This application is for done this thing.
