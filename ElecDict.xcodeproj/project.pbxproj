@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6231872424820FBF002E6361 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6231872324820FBF002E6361 /* SearchTextField.swift */; };
 		629FF8B52481271F004AA265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FF8B42481271F004AA265 /* AppDelegate.swift */; };
 		629FF8B72481271F004AA265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FF8B62481271F004AA265 /* SceneDelegate.swift */; };
 		629FF8B92481271F004AA265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FF8B82481271F004AA265 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		4399375A3826840DA7C31D4E /* Pods-ElecDict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElecDict.release.xcconfig"; path = "Target Support Files/Pods-ElecDict/Pods-ElecDict.release.xcconfig"; sourceTree = "<group>"; };
+		6231872324820FBF002E6361 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		629FF8B12481271F004AA265 /* ElecDict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElecDict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		629FF8B42481271F004AA265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		629FF8B62481271F004AA265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +78,9 @@
 			children = (
 				629FF8B42481271F004AA265 /* AppDelegate.swift */,
 				629FF8B62481271F004AA265 /* SceneDelegate.swift */,
-				629FF8B82481271F004AA265 /* ViewController.swift */,
 				629FF8BA2481271F004AA265 /* Main.storyboard */,
+				629FF8B82481271F004AA265 /* ViewController.swift */,
+				6231872324820FBF002E6361 /* SearchTextField.swift */,
 				629FF8BD24812720004AA265 /* Assets.xcassets */,
 				629FF8BF24812720004AA265 /* LaunchScreen.storyboard */,
 				629FF8C224812720004AA265 /* Info.plist */,
@@ -213,6 +216,7 @@
 				629FF8B92481271F004AA265 /* ViewController.swift in Sources */,
 				629FF8B52481271F004AA265 /* AppDelegate.swift in Sources */,
 				629FF8B72481271F004AA265 /* SceneDelegate.swift in Sources */,
+				6231872424820FBF002E6361 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
