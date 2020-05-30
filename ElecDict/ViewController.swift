@@ -16,6 +16,10 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
     
     var webView : WKWebView?
     
+    var webViewEstimatedProgressObservation: NSKeyValueObservation?
+    
+    var webViewProgressView : UIProgressView?
+    
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
         .lightContent
@@ -57,7 +61,16 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
         webView?.navigationDelegate = self
         webView?.allowsBackForwardNavigationGestures = true // 允许通过手势操作返回
         webView?.scrollView.keyboardDismissMode = .onDrag
+        // listen the web process
+        webViewEstimatedProgressObservation = webView?.observe(\.estimatedProgress, options: .new, changeHandler: { [weak self] (webView, value) in
+            self?.webViewProgressView?.setProgress(Float(value.newValue ?? 0), animated: true)
+        })
         self.view.addSubview(webView ?? UIView())
+        
+        webViewProgressView = UIProgressView()
+        webViewProgressView?.trackTintColor = UIColor.clear
+        webViewProgressView?.progressTintColor = UIColor.init(red: 251/255, green: 187/255, blue: 0/255, alpha: 1)
+        self.view.addSubview(webViewProgressView ?? UIView())
         
         layoutInit()
 
@@ -79,6 +92,12 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
             make.left.equalTo(self.view.safeAreaLayoutGuide)
             make.right.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
+        webViewProgressView?.snp.makeConstraints({ (make) in
+            make.top.equalTo(webView!)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        })
     }
     
     // load webview
@@ -93,13 +112,20 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
         webView?.load(myRequest)
     }
     
+    // delegate webview
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        searchTextField?.text = nil
+    }
+    
     // keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         loadUrl("https://dictionary.cambridge.org/search/direct/?datasetsearch=english&q=\(textField.text ?? "")")
-        textField.text = nil
         return true
     }
 
+    deinit {
+        webViewEstimatedProgressObservation?.invalidate()
+    }
 }
 
