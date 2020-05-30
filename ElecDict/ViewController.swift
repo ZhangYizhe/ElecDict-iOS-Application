@@ -31,12 +31,12 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
         
         // 初始化搜索框
         searchTextField = SearchTextField()
+        searchTextField?.backgroundColor = UIColor.init(named: "SearchBackgroundColor")
         searchTextField?.clearButtonMode = .whileEditing
         searchTextField?.delegate = self
         searchTextField?.placeholder = "Search English"
         searchTextField?.layer.masksToBounds = true
         searchTextField?.layer.cornerRadius = 20
-        searchTextField?.backgroundColor = UIColor.white
         searchTextField?.returnKeyType = .search
         searchTextField?.keyboardType = .asciiCapable
         self.view.addSubview(searchTextField ?? UIView())
@@ -60,6 +60,7 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, WKNav
         webView?.uiDelegate = self
         webView?.navigationDelegate = self
         webView?.allowsBackForwardNavigationGestures = true // 允许通过手势操作返回
+//        webView?.allowsLinkPreview = false // don't allow long press to preview
         webView?.scrollView.keyboardDismissMode = .onDrag
         // listen the web process
         webViewEstimatedProgressObservation = webView?.observe(\.estimatedProgress, options: .new, changeHandler: { [weak self] (webView, value) in
